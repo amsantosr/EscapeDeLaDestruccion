@@ -51,7 +51,7 @@ public class Position : MonoBehaviour {
 			                                              gameObject.transform.localScale.z * 0.5f);
 
 			gameObject.transform.rotation = Random.rotation;
-			Destroy(gameObject, 3);
+			Destroy(gameObject, 5);
 		}
 		
 	}
@@ -59,7 +59,7 @@ public class Position : MonoBehaviour {
 	private float betweenRange(double number, double range){
 		bool sign;
 		double numToSum;
-		if (rnd.Next (0, 100) < 50) {
+		if (rnd.Next (0, 100) < 20) {
 			sign = false;
 		} else {
 			sign = true;
