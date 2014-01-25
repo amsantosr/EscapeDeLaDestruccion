@@ -8,7 +8,7 @@ public class Position : MonoBehaviour {
 	
 	public Position() : base(){
 		rnd = new System.Random ();
-		difficultyLimit = 2;
+		difficultyLimit = 50;
 	}
 	
 	void Start () {
@@ -21,17 +21,37 @@ public class Position : MonoBehaviour {
 		
 		
 		if (randomNumber < difficultyLimit) {
-			GameObject gameObject;
-			if (rnd.Next() % 2 == 0)
+			GameObject gameObject = null;
+			switch (rnd.Next() % 4) {
+			case 0:
 			{
 				gameObject = GameObject.CreatePrimitive (PrimitiveType.Cube);
+				break;
 			}
-			else
+			case 1:
 			{
 				gameObject = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+				break;
+			}
+			case 2:
+			{
+				gameObject = GameObject.CreatePrimitive(PrimitiveType.Capsule);
+				break;
+			}
+			case 3:
+			{
+				gameObject = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+				break;
+			}
 			}
 			gameObject.AddComponent<Rigidbody> ();
-			gameObject.transform.position = new Vector3 (betweenRange(this.transform.position.x,0.5),this.transform.position.y+4.0f,this.transform.position.z);
+			gameObject.transform.position = new Vector3 (betweenRange(this.transform.position.x,2),this.transform.position.y+4.0f,betweenRange(this.transform.position.z,2));
+			gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * 0.5f,
+			                                              gameObject.transform.localScale.y * 0.5f,
+			                                              gameObject.transform.localScale.z * 0.5f);
+
+			gameObject.transform.rotation = Random.rotation;
+			Destroy(gameObject, 3);
 		}
 		
 	}
