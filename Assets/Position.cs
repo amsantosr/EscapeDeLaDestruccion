@@ -8,7 +8,7 @@ public class Position : MonoBehaviour {
 	
 	public Position() : base(){
 		rnd = new System.Random ();
-		difficultyLimit = 50;
+		difficultyLimit = 10;
 	}
 	
 	void Start () {
@@ -49,8 +49,8 @@ public class Position : MonoBehaviour {
 			gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * 0.5f,
 			                                              gameObject.transform.localScale.y * 0.5f,
 			                                              gameObject.transform.localScale.z * 0.5f);
-
 			gameObject.transform.rotation = Random.rotation;
+			gameObject.renderer.material.color = new Color((float)rnd.NextDouble(), (float)rnd.NextDouble(), (float)rnd.NextDouble());
 			Destroy(gameObject, 5);
 		}
 		
@@ -59,7 +59,7 @@ public class Position : MonoBehaviour {
 	private float betweenRange(double number, double range){
 		bool sign;
 		double numToSum;
-		if (rnd.Next (0, 100) < 20) {
+		if (rnd.Next (0, 100) < 50) {
 			sign = false;
 		} else {
 			sign = true;
