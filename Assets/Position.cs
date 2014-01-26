@@ -45,10 +45,11 @@ public class Position : MonoBehaviour {
 			}
 			}
 			gameObject.AddComponent<Rigidbody> ();
-			gameObject.transform.position = new Vector3 (betweenRange(this.transform.position.x,2),this.transform.position.y+4.0f,betweenRange(this.transform.position.z,2));
+			gameObject.transform.position = new Vector3 (betweenRange(this.transform.position.x,2),this.transform.position.y+7.0f,betweenRange(this.transform.position.z,2));
 			gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 			gameObject.transform.rotation = Random.rotation;
 			gameObject.renderer.material.color = new Color((float)rnd.NextDouble(), (float)rnd.NextDouble(), (float)rnd.NextDouble());
+			gameObject.name = "AUTO";
 			Destroy(gameObject, 5);
 		}
 		
