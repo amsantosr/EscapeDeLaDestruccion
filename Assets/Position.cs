@@ -8,7 +8,7 @@ public class Position : MonoBehaviour {
 	
 	public Position() : base(){
 		rnd = new System.Random ();
-		difficultyLimit = 10;
+		difficultyLimit = 5;
 	}
 	
 	void Start () {
@@ -49,7 +49,7 @@ public class Position : MonoBehaviour {
 			gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
 			gameObject.transform.rotation = Random.rotation;
 			gameObject.renderer.material.color = new Color((float)rnd.NextDouble(), (float)rnd.NextDouble(), (float)rnd.NextDouble());
-			//Destroy(gameObject, 5);
+			Destroy(gameObject, 5);
 		}
 		
 	}
